@@ -11,10 +11,7 @@ class Team {
     this.email = email;
   }
 
-  printInfo() {
-    console.log(`This vehicle has ${this.numberOfWheels} wheels`);
-    console.log(`This vehicle has an id of ${this.id}`);
-  }
+
 
 inquirer
   .prompt([
@@ -24,28 +21,17 @@ inquirer
       name: '#Name',
     },
     {
-      type: 'input',
+      type: 'list',
+      choices: ['Manager', 'Engineer', 'Intern'],
       message: 'What is his or her job title?',
-      name: '##',
+      name: '##JobTitle',
     },
     {
       type: 'input',
-      message: 'What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.',
-      name: '##Installation',
+      message: 'What is the id for this team member?',
+      name: '##Id',
     },
-    {
-     type: 'input', 
-     message: 'Provide Instructions and examples for use. Include screenshots as needed.',
-     name: '##Usage',
-    },
-   
-   
     
-    {
-     type: 'input', 
-     message: 'What is your github username?',
-     name: '##Questions',
-    },
     {
      type: 'input',
      validate: function(input){
@@ -53,7 +39,7 @@ inquirer
          if (input.length > 6) return true;
          else return "Must be a valid email"
      },
-     message: 'What is your email?',
-     name: '##Questions',
+     message: 'What is this email of this team member?',
+     name: '##Email',
     }
   ])
