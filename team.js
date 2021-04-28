@@ -3,13 +3,13 @@ const fs = require('fs');
 // TODO: Create an array of questions for user input
 const inquirer = require('inquirer');
 
-class Team {
-  constructor(name, id, title, email) {
-    this.name = name;
-    this.id = id;
-    this.title = title;
-    this.email = email;
-  }
+// class Team {
+//   constructor(name, id, title, email) {
+//     this.name = name;
+//     this.id = id;
+//     this.title = title;
+//     this.email = email;
+//   };
 
 
 
@@ -39,7 +39,11 @@ inquirer
          if (input.length > 6) return true;
          else return "Must be a valid email"
      },
-     message: 'What is this email of this team member?',
+     message: 'What is this email for this team member?',
      name: '##Email',
-    }
+    },
   ])
+
+  .then((response) =>{
+    console.log(JSON.stringify(response, null, 2));
+});
